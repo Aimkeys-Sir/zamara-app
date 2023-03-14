@@ -108,7 +108,7 @@ const styles = StyleSheet.create({
   hamb: {
     padding: 10,
     top: Platform.OS === "android" ? StatusBar.currentHeight : 0,
-    backgroundColor: "#ddd",
+    backgroundColor: "#E9D816",
     position: "absolute",
     flex: 1,
   },

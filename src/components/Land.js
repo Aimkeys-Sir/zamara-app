@@ -17,11 +17,11 @@ import {
   
   // const Drawer = createDrawerNavigator()
   
-  export default function Land() {
+  export default function Land({user}) {
    
     return (
       <SafeAreaView style={styles.container}>
-        <Home/>
+        <Home user={user}/>
         <HamburgerMenu/>
       </SafeAreaView>
     )

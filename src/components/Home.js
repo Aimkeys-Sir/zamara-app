@@ -1,15 +1,16 @@
+import { useEffect } from "react"
 import { StyleSheet, View, Image, Text } from "react-native"
+import UserDisplay from "./UserDisplay"
 
-export default function Home() {
+export default function Home({user}) {
+
+
+  useEffect(()=>{
+    console.log(user)
+  })
   return (
     <View style={styles.home}>
       <View style={styles.topbar}>
-        {/* <View style={styles.hamp}>
-          <Image
-            style={styles.ham}
-            source={require("../../assets/icons/hamburger.png")}
-          />
-        </View> */}
         <View style={styles.logop}>
           <View style={styles.logo}>
             <View style={styles.z}>
@@ -18,6 +19,9 @@ export default function Home() {
             <Text style={styles.text}>AMARA</Text>
           </View>
         </View>
+      </View>
+      <View style={styles.pages}>
+        <UserDisplay user={user}/>
       </View>
     </View>
   )
@@ -60,4 +64,7 @@ const styles = StyleSheet.create({
     fontFamily: "Roboto_700Bold",
     fontSize: 30,
   },
+  pages:{
+    justifyContent: "center"
+  }
 })
