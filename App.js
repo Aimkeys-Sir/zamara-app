@@ -1,20 +1,23 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
 
+import { createNativeStackNavigator} from "@react-navigation/native-stack"
+import { NavigationContainer } from "@react-navigation/native"
+import { useFonts, Roboto_700Bold } from "@expo-google-fonts/dev"
+
+import SignIn from "./src/components/SignIn"
+import Land from "./src/components/Land"
+const Stack = createNativeStackNavigator()
 export default function App() {
+  const [loaded] = useFonts({ Roboto_700Bold })
+  if (!loaded) {
+    return
+  }
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="signIn" options={{headerShown: false}} component={SignIn} />
+        <Stack.Screen name="land" component={Land} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  )
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
